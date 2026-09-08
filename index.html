@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FM DIESEL ENGINES - Especialistas em Turbocompressores e Motores Diesel</title>
-    <meta name="description" content="Manutenção técnica, diagnóstico avançado e soluções completas em Motores Diesel e Turbocompressores para os setores Offshore, Naval, Industrial e Geradores.">
+    <meta name="description" content="Manutenção técnica, diagnóstico avançado e soluções completas em Motores Diesel e Turbocompressores para os setores Offshore, Naval e Industrial.">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,15 +38,50 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .hero-bg {
-            background: linear-gradient(90deg, rgba(7, 17, 32, 0.92) 0%, rgba(7, 17, 32, 0.7) 50%, rgba(7, 17, 32, 0.3) 100%), 
-                url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1920&q=80');
+
+        /* ESTRUTURA DO SLIDER E PADRONIZAÇÃO DE IMAGENS */
+        .hero-slider-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #071120;
+        }
+
+        .hero-bg-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
         }
+
+        .hero-bg-slide.active {
+            opacity: 0.55;
+        }
+
+        /* CAMADA DE FILTRO AZULADO E GRADIENTE */
+        .hero-blue-filter {
+            position: absolute;
+            inset: 0;
+            background-color: #071120;
+            mix-blend-mode: multiply;
+            z-index: 2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(7, 17, 32, 0.95) 0%, rgba(7, 17, 32, 0.75) 50%, rgba(7, 17, 32, 0.3) 100%);
+            z-index: 3;
+        }
+
         .cta-bg {
             background: linear-gradient(rgba(7, 17, 32, 0.85), rgba(7, 17, 32, 0.95)), 
-                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+                        url('navio1.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -59,7 +94,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-24">
                 
-                <!-- Logo Oficial da Empresa (Tamanho Ampliado) -->
+                <!-- Logo Oficial da Empresa -->
                 <a href="#" class="flex items-center gap-3">
                     <img src="logo.png" alt="FM Diesel Engines Logo" class="h-16 md:h-20 w-auto object-contain transition-all">
                 </a>
@@ -107,8 +142,19 @@
     </header>
 
     <main>
-        <!-- SEÇÃO HERO -->
-        <section id="inicio" class="hero-bg min-h-[90vh] flex items-center pt-28 pb-16 relative">
+        <!-- SEÇÃO HERO COM SLIDER AUTOMÁTICO (3 IMAGENS) -->
+        <section id="inicio" class="hero-slider-container min-h-[90vh] flex items-center pt-28 pb-16 relative">
+            
+            <!-- Imagens do Slider (navio1.jpg a navio3.jpg) -->
+            <div class="hero-bg-slide active" style="background-image: url('navio1.jpg');"></div>
+            <div class="hero-bg-slide" style="background-image: url('navio2.jpg');"></div>
+            <div class="hero-bg-slide" style="background-image: url('navio3.jpg');"></div>
+
+            <!-- Camada de Tom Azulado e Gradiente Escuro -->
+            <div class="hero-blue-filter"></div>
+            <div class="hero-overlay"></div>
+
+            <!-- Conteúdo em Primeiro Plano -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
                 <div class="max-w-2xl">
                     
@@ -121,7 +167,7 @@
                     </h1>
 
                     <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
-                        Manutenção, diagnóstico e soluções completas para os setores offshore, naval, industrial e geradores.
+                        Manutenção, diagnóstico e soluções completas para os setores offshore, naval e industrial.
                     </p>
 
                     <!-- Badges discretos -->
@@ -153,7 +199,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: NOSSOS SEGMENTOS -->
+        <!-- SEÇÃO: NOSSOS SEGMENTOS (AGORA COM 3 ITENS) -->
         <section id="segmentos" class="py-16 bg-white border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -162,12 +208,12 @@
                     <p class="text-slate-500 text-xs font-medium mt-1">Soluções para diferentes operações, com o mesmo compromisso: qualidade e confiabilidade.</p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     
                     <!-- Offshore -->
-                    <div class="relative rounded-xl overflow-hidden group shadow-sm border border-slate-200 h-48">
-                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Offshore" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent flex items-end p-4">
+                    <div class="relative rounded-xl overflow-hidden group shadow-sm border border-slate-200 h-52 bg-navy-900">
+                        <img src="offshore1.jpg" alt="Offshore" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent flex items-end p-5">
                             <div class="flex items-center gap-3 text-white">
                                 <i class="fa-solid fa-water-ladder text-industrial-500 text-xl"></i>
                                 <span class="font-bold text-sm uppercase tracking-wider">Offshore</span>
@@ -176,9 +222,9 @@
                     </div>
 
                     <!-- Naval -->
-                    <div class="relative rounded-xl overflow-hidden group shadow-sm border border-slate-200 h-48">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80" alt="Naval" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent flex items-end p-4">
+                    <div class="relative rounded-xl overflow-hidden group shadow-sm border border-slate-200 h-52 bg-navy-900">
+                        <img src="naval1.jpg" alt="Naval" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent flex items-end p-5">
                             <div class="flex items-center gap-3 text-white">
                                 <i class="fa-solid fa-ship text-industrial-500 text-xl"></i>
                                 <span class="font-bold text-sm uppercase tracking-wider">Naval</span>
@@ -187,23 +233,12 @@
                     </div>
 
                     <!-- Industrial -->
-                    <div class="relative rounded-xl overflow-hidden group shadow-sm border border-slate-200 h-48">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Industrial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent flex items-end p-4">
+                    <div class="relative rounded-xl overflow-hidden group shadow-sm border border-slate-200 h-52 bg-navy-900">
+                        <img src="industrial1.jpg" alt="Industrial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent flex items-end p-5">
                             <div class="flex items-center gap-3 text-white">
                                 <i class="fa-solid fa-industry text-industrial-500 text-xl"></i>
                                 <span class="font-bold text-sm uppercase tracking-wider">Industrial</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Geradores -->
-                    <div class="relative rounded-xl overflow-hidden group shadow-sm border border-slate-200 h-48">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80" alt="Geradores" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent flex items-end p-4">
-                            <div class="flex items-center gap-3 text-white">
-                                <i class="fa-solid fa-bolt text-industrial-500 text-xl"></i>
-                                <span class="font-bold text-sm uppercase tracking-wider">Geradores</span>
                             </div>
                         </div>
                     </div>
@@ -296,7 +331,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: MARCAS (Placeholders TESTE 1, TESTE 2, etc.) -->
+        <!-- SEÇÃO: MARCAS -->
         <section class="py-12 bg-slate-100 border-b border-slate-200 text-center">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <p class="text-xs font-extrabold uppercase tracking-widest text-slate-500 mb-6">TRABALHAMOS COM AS PRINCIPAIS MARCAS DO MERCADO</p>
@@ -444,8 +479,9 @@
         </div>
     </footer>
 
-    <!-- JS do Menu Mobile -->
+    <!-- SCRIPTS DE NAVEGAÇÃO E SLIDER -->
     <script>
+        // Menu Mobile
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -469,6 +505,18 @@
                 menuIcon.classList.add('fa-bars');
             });
         });
+
+        // Script do Slider de Fundo (3 imagens, troca a cada 5 segundos)
+        const slides = document.querySelectorAll('.hero-bg-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>
